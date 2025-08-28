@@ -22,7 +22,7 @@ level = "match"
 # Create the symbolic transition matrix
 P, state_names, p = create_symbolic_game_tennis_matrix()
 P_g, state_names, p_g = create_symbolic_set_tennis_matrix()
-P_s, state_names, p_s = create_symbolic_match_tennis_matrix()
+P_s, state_names, p_s = create_symbolic_match_tennis_matrix(best_of=5)
 
 # Solve the full system
 print("=" * 60)

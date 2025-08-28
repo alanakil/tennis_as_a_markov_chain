@@ -670,7 +670,7 @@ def plot_probability_match_split_panel(game_expr, set_expr, match_expr):
 
 
 # Example usage function
-def save_publication_plots(game_expr, set_expr, match_expr, filename_base='tennis_probabilities'):
+def save_publication_plots(game_expr, set_expr, match_expr, filename_base='../data/tennis_probabilities'):
     """
     Generate and save publication-quality plots in multiple formats.
     """
