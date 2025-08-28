@@ -1,6 +1,6 @@
 # %%
 """
-Symbolic Tennis Match Probability Solver
+Symbolic Tennis Match Probability Solver.
 
 This script uses SymPy to symbolically solve for the exact probability
 that Player 1 wins a tennis game in terms of the point win probability p.
@@ -8,11 +8,24 @@ that Player 1 wins a tennis game in terms of the point win probability p.
 It constructs the full transition matrix and uses the fundamental
 matrix method to derive the closed-form expression.
 """
+
 __author__ = "Alan Akil"
 __date__ = "2025-08-27"
 
-from tennis_markov.helpers import create_symbolic_game_tennis_matrix, create_symbolic_set_tennis_matrix, create_symbolic_match_tennis_matrix, solve_win_probability, simplify_expression, plot_probabilities, plot_probability_match_given_point, write_latex, plot_probability_match_split_panel, save_publication_plots
 import sympy as sp
+
+from tennis_markov.helpers import (
+    create_symbolic_game_tennis_matrix,
+    create_symbolic_match_tennis_matrix,
+    create_symbolic_set_tennis_matrix,
+    plot_probabilities,
+    plot_probability_match_given_point,
+    plot_probability_match_split_panel,
+    save_publication_plots,
+    simplify_expression,
+    solve_win_probability,
+    write_latex,
+)
 
 # Set up SymPy for better display
 sp.init_printing(use_unicode=True)
@@ -31,7 +44,9 @@ levels = ["game", "set", "match"]
 transition_matrices = [P, P_g, P_s]
 win_probs = []
 for level, transition_matrix in zip(levels, transition_matrices):
-    _, _, win_prob = solve_win_probability(transition_matrix, num_absorbing_states, level)
+    _, _, win_prob = solve_win_probability(
+        transition_matrix, num_absorbing_states, level
+    )
     simplified_prob = simplify_expression(win_prob, level, max_steps=3)
     win_probs.append(simplified_prob)
     plot_probabilities(simplified_prob, level)

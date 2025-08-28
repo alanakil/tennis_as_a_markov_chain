@@ -68,7 +68,7 @@ MCs have the following properties:
 
 1. $P_{ij} \geq 0$ for all $i, j$
 2. $\sum_{j=1}^N P_{ij} = 1$ for all $i$
-3. $\mathbf{P}^{(n)} = \mathbf{P}^n$ where the entries of $\mathbf{P}^{(n)}$ are the probabilities of starting at state $i$ and ending in state $j$ after $n$ steps, $P^{(n)}_{ij} = P(X_{n} = j | X_0 = i)$. 
+3. $\mathbf{P}^{(n)} = \mathbf{P}^n$ where the entries of $\mathbf{P}^{(n)}$ are the probabilities of starting at state $i$ and ending in state $j$ after $n$ steps, $P^{(n)}_{ij} = P(X_{n} = j | X_0 = i)$.
 
 ---
 
@@ -326,22 +326,22 @@ $$P_{\text{match}}(p_s) = B_{\text{match}}[\text{"0-0"}, \text{"P1-Match"}]$$
 
 If the match is best of 3, the probability $p_m^{(3)}:= P(\text{Player 1 wins Bo3})$ is given by:
 $$
-p_m^{(3)} = 
+p_m^{(3)} =
 p_{s}^{2} \left(3 - 2 p_{s}\right)
-$$ 
+$$
 
 In terms of $p$, we get:
 
 $$
 \begin{align}
 p_m^{(3)} &= p^{48} \bigg(- 2 p^{24} \big(- 20 p^{3} + 70 p^{2} - 84 p + 35\big)^{6} \big(504 p^{28} \big(- 20 p^{3} + 70 p^{2} - 84 p + 35\big)^{7} \\
-&\quad - 3276 p^{24} \big(- 20 p^{3} + 70 p^{2} - 84 p + 35\big)^{6} 
+&\quad - 3276 p^{24} \big(- 20 p^{3} + 70 p^{2} - 84 p + 35\big)^{6}
 + 8820 p^{20} \big(- 20 p^{3} + 70 p^{2} - 84 p + 35\big)^{5} \\
-&\quad - 12474 p^{16} \big(- 20 p^{3} + 70 p^{2} - 84 p + 35\big)^{4} 
- + 9520 p^{12} \big(- 20 p^{3} + 70 p^{2} - 84 p + 35\big)^{3} \\ 
+&\quad - 12474 p^{16} \big(- 20 p^{3} + 70 p^{2} - 84 p + 35\big)^{4}
+ + 9520 p^{12} \big(- 20 p^{3} + 70 p^{2} - 84 p + 35\big)^{3} \\
 &\quad - 3339 p^{8} \big(- 20 p^{3} + 70 p^{2} - 84 p + 35\big)^{2} + 36 p^{4} \big(- 20 p^{3} + 70 p^{2} - 84 p + 35\big) + 210\big) \\
 &\quad + 3\big) \big(- 20 p^{3} + 70 p^{2} - 84 p + 35\big)^{12} \big(504 p^{28} \big(- 20 p^{3} + 70 p^{2} - 84 p + 35\big)^{7} \\
-&\quad - 3276 p^{24} \big(- 20 p^{3} + 70 p^{2} - 84 p + 35\big)^{6} + 8820 p^{20} \big(- 20 p^{3} + 70 p^{2} - 84 p + 35\big)^{5} \\ 
+&\quad - 3276 p^{24} \big(- 20 p^{3} + 70 p^{2} - 84 p + 35\big)^{6} + 8820 p^{20} \big(- 20 p^{3} + 70 p^{2} - 84 p + 35\big)^{5} \\
 &\quad - 12474 p^{16} \big(- 20 p^{3} + 70 p^{2} - 84 p + 35\big)^{4} + 9520 p^{12} \big(- 20 p^{3} + 70 p^{2} - 84 p + 35\big)^{3} \\
 &\quad - 3339 p^{8} \big(- 20 p^{3} + 70 p^{2} - 84 p + 35\big)^{2} \\
 &\quad + 36 p^{4} \big(- 20 p^{3} + 70 p^{2} - 84 p + 35\big) + 210\bigg)^{2}
@@ -355,7 +355,7 @@ $$
 
 If the match is best of 5, the probability $p_m^{(5)}:= P(\text{Player 1 wins Bo5})$ is given by:
 $$
-p_m^{(5)} = 
+p_m^{(5)} =
 p_{s}^{3} \left(6 p_{s}^{2} - 15 p_{s} + 10\right)
 $$
 
@@ -363,7 +363,7 @@ And in terms of $p$, we get the following expression:
 
 $$
 \begin{align}
-p_m^{(5)} &= p^{72} \big(6 p^{48} \big(- 20 p^{3} + 70 p^{2} - 84 p + 35\big)^{12} \big(504 p^{28} \big(- 20 p^{3} + 70 p^{2} - 84 p + 35\big)^{7} \\ 
+p_m^{(5)} &= p^{72} \big(6 p^{48} \big(- 20 p^{3} + 70 p^{2} - 84 p + 35\big)^{12} \big(504 p^{28} \big(- 20 p^{3} + 70 p^{2} - 84 p + 35\big)^{7} \\
 &\quad - 3276 p^{24} \big(- 20 p^{3} + 70 p^{2} - 84 p + 35\big)^{6} + 8820 p^{20} \big(- 20 p^{3} + 70 p^{2} - 84 p + 35\big)^{5} \\
 &\quad - 12474 p^{16} \big(- 20 p^{3} + 70 p^{2} - 84 p + 35\big)^{4} + 9520 p^{12} \big(- 20 p^{3} + 70 p^{2} - 84 p + 35\big)^{3} \\
 &\quad - 3339 p^{8} \big(- 20 p^{3} + 70 p^{2} - 84 p + 35\big)^{2} + 36 p^{4} \big(- 20 p^{3} + 70 p^{2} - 84 p + 35\big) + 210\big)^{2} \\
@@ -371,9 +371,9 @@ p_m^{(5)} &= p^{72} \big(6 p^{48} \big(- 20 p^{3} + 70 p^{2} - 84 p + 35\big)^{1
 &\quad - 3276 p^{24} \big(- 20 p^{3} + 70 p^{2} - 84 p + 35\big)^{6} + 8820 p^{20} \big(- 20 p^{3} + 70 p^{2} - 84 p + 35\big)^{5} \\
 &\quad - 12474 p^{16} \big(- 20 p^{3} + 70 p^{2} - 84 p + 35\big)^{4} + 9520 p^{12} \big(- 20 p^{3} + 70 p^{2} - 84 p + 35\big)^{3} \\
 &\quad - 3339 p^{8} \big(- 20 p^{3} + 70 p^{2} - 84 p + 35\big)^{2} + 36 p^{4} \big(- 20 p^{3} + 70 p^{2} - 84 p + 35\big) + 210\big) \\
-&\quad + 10\big) \big(- 20 p^{3} + 70 p^{2} - 84 p + 35\big)^{18} \big(504 p^{28} \big(- 20 p^{3} + 70 p^{2} - 84 p + 35\big)^{7} \\ 
-&\quad - 3276 p^{24} \big(- 20 p^{3} + 70 p^{2} - 84 p + 35\big)^{6} + 8820 p^{20} \big(- 20 p^{3} + 70 p^{2} - 84 p + 35\big)^{5} \\ 
-&\quad - 12474 p^{16} \big(- 20 p^{3} + 70 p^{2} - 84 p + 35\big)^{4} + 9520 p^{12} \big(- 20 p^{3} + 70 p^{2} - 84 p + 35\big)^{3} \\ 
+&\quad + 10\big) \big(- 20 p^{3} + 70 p^{2} - 84 p + 35\big)^{18} \big(504 p^{28} \big(- 20 p^{3} + 70 p^{2} - 84 p + 35\big)^{7} \\
+&\quad - 3276 p^{24} \big(- 20 p^{3} + 70 p^{2} - 84 p + 35\big)^{6} + 8820 p^{20} \big(- 20 p^{3} + 70 p^{2} - 84 p + 35\big)^{5} \\
+&\quad - 12474 p^{16} \big(- 20 p^{3} + 70 p^{2} - 84 p + 35\big)^{4} + 9520 p^{12} \big(- 20 p^{3} + 70 p^{2} - 84 p + 35\big)^{3} \\
 &\quad - 3339 p^{8} \big(- 20 p^{3} + 70 p^{2} - 84 p + 35\big)^{2} + 36 p^{4} \big(- 20 p^{3} + 70 p^{2} - 84 p + 35\big) + 210\big)^{3}
 \end{align}
 $$
@@ -384,15 +384,15 @@ $$
 
 ### Analytical solution
 
-As shown above, we were able to derive tractable expressions for the probability of winning a game, set, and match as a function of the probability of winning a point, $p$. 
+As shown above, we were able to derive tractable expressions for the probability of winning a game, set, and match as a function of the probability of winning a point, $p$.
 
 $$p \rightarrow P_{\text{game}}(p) \rightarrow P_{\text{set}}(P_{\text{game}}(p)) \rightarrow P_{\text{match}}(P_{\text{set}}(\cdot))$$
 
 These expressions compound on the previous one and that compounding causes the amplification effect. they also get more and more complex as we go up the hierarchy and they are difficult to interpret, even though they are just polynomials. For better interpretability, we plotted each of the three functions in the graph below for the case of a match played to the best of 5 sets.
- 
+
 ![Tennis Probability Analysis](./data/tennis_probabilities_split.png)
- 
-Here, we can clearly see the amplification effect mentioned before, where small difference in the probability of winning a point compound heavily as we go up the hierarchy to the match level. At the match level, we get the largest amplification and hence the highest sensitivity to changes in the point win probability. 
+
+Here, we can clearly see the amplification effect mentioned before, where small difference in the probability of winning a point compound heavily as we go up the hierarchy to the match level. At the match level, we get the largest amplification and hence the highest sensitivity to changes in the point win probability.
 
 
 ### Key Insights
@@ -403,7 +403,7 @@ Here, we can clearly see the amplification effect mentioned before, where small 
 
 3. **Format Sensitivity**: Best-of-5 matches, currently only played at Grand Slams, amplify advantages more than best-of-3, favoring stronger players.
 
-4. **Strategic Implications**: The mathematical structure explains why 
+4. **Strategic Implications**: The mathematical structure explains why
 players work on small, detailed adjustments on their serve, forehand, return, etc. as they lead toconsistent tactical advantages and translate to larger probabilities of tournament success.
 
 
@@ -435,8 +435,8 @@ players work on small, detailed adjustments on their serve, forehand, return, et
 The mathematical analysis of tennis through absorbing Markov chains reveals the elegant structure underlying the sport's competitive dynamics. The hierarchical amplification effect—where small advantages compound through multiple levels—provides quantitative insight into why tennis exhibits clear skill hierarchies and why small improvements in fundamental abilities translate to disproportionate competitive advantages.
 
 
-It is rewarding to bridge two of my passions (tennis and maths) to 
-derive a deeper understanding of one using tools from the other. It is indeed fascinating how even while making strong assumptions, we can extract key insights and principles that should hold at a macroscopic level. 
+It is rewarding to bridge two of my passions (tennis and maths) to
+derive a deeper understanding of one using tools from the other. It is indeed fascinating how even while making strong assumptions, we can extract key insights and principles that should hold at a macroscopic level.
 
 Anecdotally, this study should also open the eyes of enthusiastic, amateur players that often believe they can return a serve or steal a game from a professional player, when in fact that is nearly impossible (or up to the pro's mercy).
 

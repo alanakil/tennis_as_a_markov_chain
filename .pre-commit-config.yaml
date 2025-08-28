@@ -1,193 +1,35 @@
-# Pre-commit configuration for Python projects
-# See https://pre-commit.com for more information
-# See https://pre-commit.com/hooks.html for more hooks
-
+# Lean pre-commit configuration - only the essentials
 repos:
-  # General pre-commit hooks
+  # Essential file hygiene
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.5.0
+    rev: v6.0.0
     hooks:
       - id: trailing-whitespace
       - id: end-of-file-fixer
       - id: check-yaml
       - id: check-toml
-      - id: check-json
-      - id: check-xml
       - id: check-added-large-files
-        args: ['--maxkb=1000']  # Prevent files larger than 1MB
+        args: ['--maxkb=1000']
       - id: check-merge-conflict
-      - id: check-case-conflict
-      - id: check-docstring-first
-      - id: debug-statements
-      - id: fix-byte-order-marker
-      - id: mixed-line-ending
-      - id: check-executables-have-shebangs
-      - id: check-shebang-scripts-are-executable
 
-  # Python-specific hooks
-  - repo: https://github.com/psf/black
-    rev: 23.12.1
-    hooks:
-      - id: black
-        name: Format code with Black
-        language_version: python3
-        args: [--line-length=88]
-
-  - repo: https://github.com/pycqa/isort
-    rev: 5.13.2
-    hooks:
-      - id: isort
-        name: Sort imports with isort
-        args: [--profile=black, --line-length=88]
-
-  # Linting
-  - repo: https://github.com/pycqa/flake8
-    rev: 7.0.0
-    hooks:
-      - id: flake8
-        name: Lint with flake8
-        additional_dependencies:
-          - flake8-docstrings
-          - flake8-bugbear
-          - flake8-comprehensions
-          - flake8-simplify
-          - flake8-bandit
-        args:
-          - --max-line-length=88
-          - --extend-ignore=E203,W503,E501
-          - --max-complexity=10
-
-  # Alternative to flake8: ruff (much faster)
+  # Python code quality - ruff does it all (linting + formatting)
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.1.9
+    rev: v0.12.11
     hooks:
       - id: ruff
-        name: Lint with ruff
-        args: [--fix, --exit-non-zero-on-fix]
+        args: [--fix]
       - id: ruff-format
-        name: Format with ruff
 
-  # Type checking
-  - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v1.8.0
-    hooks:
-      - id: mypy
-        name: Type checking with mypy
-        additional_dependencies: [types-all]
-        args: [--ignore-missing-imports, --strict]
+# Simple configuration
+default_stages: [pre-commit]
+fail_fast: true  # Stop on first failure for faster feedback
 
-  # Security scanning
-  - repo: https://github.com/PyCQA/bandit
-    rev: 1.7.5
-    hooks:
-      - id: bandit
-        name: Security linting with bandit
-        args: [-r, ., -f, json, -o, bandit-report.json]
-        exclude: ^tests/
-
-  # Docstring formatting
-  - repo: https://github.com/pycqa/pydocstyle
-    rev: 6.3.0
-    hooks:
-      - id: pydocstyle
-        name: Check docstrings with pydocstyle
-        args: [--convention=google]
-
-  # Upgrade syntax for newer Python versions
-  - repo: https://github.com/asottile/pyupgrade
-    rev: v3.15.0
-    hooks:
-      - id: pyupgrade
-        name: Upgrade syntax with pyupgrade
-        args: [--py38-plus]
-
-  # Remove unused imports and variables
-  - repo: https://github.com/PyCQA/autoflake
-    rev: v2.2.1
-    hooks:
-      - id: autoflake
-        name: Remove unused imports with autoflake
-        args:
-          - --in-place
-          - --remove-all-unused-imports
-          - --remove-unused-variables
-          - --remove-duplicate-keys
-          - --ignore-init-module-imports
-
-  # Sort and format requirements files
-  - repo: https://github.com/asottile/reorder-python-imports
-    rev: v3.12.0
-    hooks:
-      - id: reorder-python-imports
-        name: Reorder Python imports
-        args: [--py38-plus]
-
-  # Check for common Python mistakes
-  - repo: https://github.com/asottile/yesqa
-    rev: v1.5.0
-    hooks:
-      - id: yesqa
-        name: Remove unnecessary noqa comments
-
-  # Jupyter notebook cleaning (if using notebooks)
-  - repo: https://github.com/nbQA-dev/nbQA
-    rev: 1.7.1
-    hooks:
-      - id: nbqa-black
-        name: Format Jupyter notebooks with black
-      - id: nbqa-isort
-        name: Sort imports in Jupyter notebooks
-        args: [--profile=black]
-      - id: nbqa-flake8
-        name: Lint Jupyter notebooks with flake8
-
-  # Poetry dependency management (if using Poetry)
-  - repo: https://github.com/python-poetry/poetry
-    rev: 1.7.1
-    hooks:
-      - id: poetry-check
-        name: Check Poetry configuration
-      - id: poetry-lock
-        name: Update Poetry lock file
-        args: [--no-update]
-
-  # Local hooks (custom scripts)
-  - repo: local
-    hooks:
-      - id: pytest
-        name: Run tests with pytest
-        entry: pytest
-        language: python
-        types: [python]
-        pass_filenames: false
-        always_run: true
-        args: [--tb=short, -v]
-        stages: [push]  # Only run on push, not every commit
-
-      - id: pytest-cov
-        name: Run tests with coverage
-        entry: pytest
-        language: python
-        types: [python]
-        pass_filenames: false
-        args: [--cov=., --cov-report=term-missing, --cov-fail-under=80]
-        stages: [manual]  # Run manually with: pre-commit run pytest-cov
-
-# Configuration for specific tools
-default_stages: [commit]
-fail_fast: false  # Set to true to stop on first failure
-
-# Exclude certain files/directories
+# Exclude common directories
 exclude: |
   (?x)^(
-      migrations/.*|
       \.venv/.*|
-      venv/.*|
-      env/.*|
-      \.git/.*|
       __pycache__/.*|
       \.pytest_cache/.*|
-      \.mypy_cache/.*|
       build/.*|
       dist/.*
   )$

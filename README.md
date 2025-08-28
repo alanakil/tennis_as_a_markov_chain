@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Ever wondered why some tennis matches are so even that end up going to a final tiebreak in a best of 5 match, while other matches are mildly dominated by one player but end 'quickly' in straight sets? 
+Ever wondered why some tennis matches are so even that end up going to a final tiebreak in a best of 5 match, while other matches are mildly dominated by one player but end 'quickly' in straight sets?
 Tennis is a game of statistics and one of the main statistics is total points won in a match. Its is fairly even in general and typically a player wins 40-60% of points in a match. But how does that number translate to winning the match? In other words, how does the probability of winning a point affect the probability of winning a match?
 
 We aim to answer this question with a mathematical model called Markov Chains, and under certain assumptions, we will arrive at a final expression for the probability of winning a match.
@@ -11,7 +11,7 @@ We will use Markov chains to model tennis match probabilities at every level of 
 
 **The place to start in this repo is the file called `./theory.md`, which describes how tennis can be modeled as a Markov Chain and explains relevant results.**
 
-Next, it is recommended to review and execute the file `./src/main.py` which leverages functions written in `./src/tennis_markov/helpers.py` that compute the analytical solution for the probability of winning a tennis match given the probability of winning a point. 
+Next, it is recommended to review and execute the file `./src/main.py` which leverages functions written in `./src/tennis_markov/helpers.py` that compute the analytical solution for the probability of winning a tennis match given the probability of winning a point.
 
 
 ### The Tennis Hierarchy
