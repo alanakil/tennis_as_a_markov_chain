@@ -247,9 +247,11 @@ $$
 Applying the fundamental matrix method:
 
 $$\mathbf{N}_{\text{game}} = (\mathbf{I} - \mathbf{Q}_{\text{game}})^{-1}$$
+
 $$\mathbf{B}_{\text{game}} = \mathbf{N}_{\text{game}}\mathbf{R}_{\text{game}}$$
 
 The game win probability for Player 1 starting from "0-0" is:
+
 $$P(\text{Player 1 wins game}) = B_{\text{game}}[\text{"0-0"}, \text{"P1-Wins"}]$$
 
 
@@ -284,12 +286,14 @@ Given game win probability $p_g$ for Player 1:
 
 $$P_{\text{set}}(p_g) = B_{\text{set}}[\text{"0-0"}, \text{"P1-Set"}]$$
 
-is given by $p_s:= P(\text{Player 1 wins set})$:
+is given by $$p_s:= P(\text{Player 1 wins set})$$
+
+
 $$
 \begin{align}
 p_s &= p_{g}^{6} \bigg(504 p_{g}^{7} - 3276 p_{g}^{6} + 8820 p_{g}^{5} \\
 &\qquad - 12474 p_{g}^{4} + 9520 p_{g}^{3} - 3339 p_{g}^{2} \\
-&\qquad + 36 p_{g} + 210\bigg) \\[1em]
+&\qquad + 36 p_{g} + 210\bigg) \\
 
 &= p^{24} \left(- 20 p^{3} + 70 p^{2} - 84 p + 35\right)^{6} \\
 &\quad \times \bigg[ 504 p^{28} \left(- 20 p^{3} + 70 p^{2} - 84 p + 35\right)^{7} \\
@@ -324,13 +328,15 @@ Given set win probability $p_s$ for Player 1:
 
 $$P_{\text{match}}(p_s) = B_{\text{match}}[\text{"0-0"}, \text{"P1-Match"}]$$
 
-If the match is best of 3, the probability $p_m^{(3)}:= P(\text{Player 1 wins Bo3})$ is given by:
+If the match is best of 3, the probability $$p_m^{(3)}:= P(\text{Player 1 wins Bo3})$$ is given by:
+
 $$
 p_m^{(3)} =
 p_{s}^{2} \left(3 - 2 p_{s}\right)
 $$
 
 In terms of $p$, we get:
+
 
 $$
 \begin{align}
@@ -350,16 +356,16 @@ $$
 
 
 
+If the match is best of 5, the probability $$p_m^{(5)}:= P(\text{Player 1 wins Bo5})$$ is given by:
 
-
-
-If the match is best of 5, the probability $p_m^{(5)}:= P(\text{Player 1 wins Bo5})$ is given by:
 $$
 p_m^{(5)} =
 p_{s}^{3} \left(6 p_{s}^{2} - 15 p_{s} + 10\right)
 $$
 
+
 And in terms of $p$, we get the following expression:
+
 
 $$
 \begin{align}
